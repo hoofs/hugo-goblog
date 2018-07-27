@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+<div id="page"><!--page div-->
+<div class="container"><!--container div-->
+<div id="content">
+  <h1><a href=".">{{ .Title }}</a></h1>
+  {{ range .Data.Pages.GroupByDate "2006" }}
+    <h1 class="title">{{ .Key }}</h1>
+    {{ range .Pages }}
+    <p class="blogtitle">
+      <span class="date">{{ .Date.Format "Jan 2" }}</span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a><br />
+    </p>
+    {{ end }}
+  {{ end }}
+</div>
+  {{ partial "footer.html" . }}

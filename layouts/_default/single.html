@@ -1,0 +1,33 @@
+{{ partial "header.html" . }}
+
+<div id="page"><!--page div-->
+<div class="container"><!--container div-->
+
+<!--div id="sidebar">
+			<h4>Next article</h4>
+			<p><a href="/go-maps-in-action">Go maps in action</a></p>
+			<h4>Previous article</h4>
+			<p><a href="/concurrency-is-not-parallelism">Concurrency is not parallelism</a></p>
+	<h4>Links</h4>
+	<ul>
+	<li><a href='//golang.org/'>golang.org</a></li>
+	<li><a href='//golang.org/doc/install.html'>Install Go</a></li>
+	<li><a href='//tour.golang.org/'>A Tour of Go</a></li>
+	<li><a href='//golang.org/doc/'>Go Documentation</a></li>
+	<li><a href='//groups.google.com/group/golang-nuts'>Go Mailing List</a></li>
+	<li><a href='//plus.google.com/101406623878176903605'>Go on Google+</a></li>
+	<li><a href='//plus.google.com/112164155169467723645/posts'>Go+ Community</a></li>
+	<li><a href='//twitter.com/golang'>Go on Twitter</a></li>
+	</ul>
+	<p><a href="/index">Blog index</a></p>
+</div-->
+
+<div id="content">
+  <!--h1><a href="/">{{ .Title }}</a></h1-->
+  <div class="article" data-slug="{{ .Permalink }}">
+    <h3 class="title"><a href="{{ .Permalink }}">{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</a></h3>
+    <p class="date">{{ .Date.Format (.Site.Params.dateform | default "02 January, 2006") }}</p>
+    {{ .Content }}
+  </div>
+</div>
+{{ partial "footer.html" . }}

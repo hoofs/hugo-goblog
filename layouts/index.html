@@ -1,0 +1,29 @@
+{{ partial "header.html" . }}
+
+<div id="page"><!--page div-->
+<div class="container"><!--container div-->
+<div id="content">
+	<!--h1><a href="">{{ .Title }}</a></h1-->
+	{{ $paginator := .Paginate (where .Data.Pages "Type" "in" "post") }}
+	{{ range .Paginator.Pages }}
+	<div class="article" data-slug="{{ .Permalink }}">
+	<h3 class="title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+	<p class="date">{{ .Date.Format (.Site.Params.dateform | default "02 January, 2006") }}<br />
+	<span class="tags">
+		{{ with .Params.tags }}
+		{{ if lt (len .) 2 }}
+			{{ range . }}
+				<a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+			{{ end }}
+		{{ else }}
+				<a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>
+		{{ end }}
+		{{ end }}
+	</span></p>
+	{{ .Summary }}
+  </div>
+	{{ end }}
+</div>
+{{ partial "paginator.html" . }}
+
+{{ partial "footer.html" . }}

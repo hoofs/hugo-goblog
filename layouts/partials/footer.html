@@ -1,0 +1,18 @@
+<div id="footer">
+	<p>
+    {{- $current := now.Format "2006" }}
+    &copy;
+    {{ if ne .Site.Params.since $current }}
+      {{ .Site.Params.since }} -
+    {{ end }}
+    {{- $current }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>, powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/hoofs/hugo-golang">golang</a>.
+    <br />Designed by <a href="https://go.googlesource.com/blog/">go-blog</a>.
+    <br />Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+	</p>
+</div>
+</div><!--container div end-->
+</div><!--page div end-->
+</body>
+<script src="{{ .Site.BaseURL }}js/zepto.min.js"></script>
+<script src="{{ .Site.BaseURL }}js/theme.js"></script>
+</html>
